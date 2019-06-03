@@ -31,12 +31,19 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("seven", "kenekaku"));
         words.add(new Word("eight", "kawinta"));
         words.add(new Word("nine", "wo'e"));
-        words.add(new Word("ten",   "na'aacha"));
+        words.add(new Word("ten", "na'aacha"));
 
+        // Create a {@link WordAdapter} whose data source is a list of {@link Word}s. The adapter
+        // knows how to create list items for each item in the list.
         WordAdapter adapter = new WordAdapter(this, words);
 
+        // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
+        // There should be a {@link ListView} with the view ID called list, which is declared in the
+        // activity_numbers.xml layout file.
         ListView listView = (ListView) findViewById(R.id.list);
 
+        // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
+        // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
 
     }
