@@ -4,6 +4,7 @@ public class Word {
 
     private String mDefaultTranslation;
     private String mMiwokTranslation;
+    private int mImageResourceID;
 
     /**
      * Construct new Word object initialized with
@@ -13,6 +14,18 @@ public class Word {
     public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+    }
+
+    /**
+     * Overload constructor with
+     * @param defaultTranslation is the word in the user's system language
+     * @param miwokTranslation is the Miwok translation of the word
+     * @param imageResourceID is an integer that ID's the image
+     */
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceID) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImageResourceID = imageResourceID;
     }
 
     /**
@@ -28,4 +41,6 @@ public class Word {
     public String getMiwokTranslation() {
         return mMiwokTranslation;
     }
+
+    public int getImageResourceID() { return mImageResourceID; }
 }
