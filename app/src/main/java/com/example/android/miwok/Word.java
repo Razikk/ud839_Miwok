@@ -2,9 +2,16 @@ package com.example.android.miwok;
 
 public class Word {
 
+    /** Default translation for the word */
     private String mDefaultTranslation;
+
+    /** Miwok translation for the word */
     private String mMiwokTranslation;
-    private int mImageResourceID;
+
+    /** Image resource ID for the word */
+    private int mImageResourceID = NO_IMAGE_PROVIDED;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
 
     /**
      * Construct new Word object initialized with
@@ -42,5 +49,15 @@ public class Word {
         return mMiwokTranslation;
     }
 
+    /**
+     * Return the image resource ID of the word.
+     */
     public int getImageResourceID() { return mImageResourceID; }
+
+    /**
+     * Returns whether or not there is an image for this word.
+     */
+    public boolean hasImage() {
+        return mImageResourceID != NO_IMAGE_PROVIDED;
+    }
 }
