@@ -14,8 +14,12 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    public WordAdapter(Activity context, ArrayList<Word> words) {
+    private int mBackgroundColorResourceId;
+
+    public WordAdapter(Activity context, ArrayList<Word> words, int backgroundColor) {
         super(context, 0, words);
+        mBackgroundColorResourceId = backgroundColor;
+
     }
 
     @NonNull
@@ -54,6 +58,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
             // Otherwise hide the ImageView (set visibility to GONE)
             imageView.setVisibility(View.GONE);
         }
+
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        textContainer.setBackgroundResource(mBackgroundColorResourceId);
 
 
         // Return the whole list item layout (containing 2 TextViews) so that it can be shown in the ListView
