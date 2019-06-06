@@ -20,7 +20,7 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         //Create an array of words
-        ArrayList<Word> words = new ArrayList<>();
+        final ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("one", "lutti",
                 R.drawable.number_one, R.raw.number_one));
         words.add(new Word("two", "otiiko",
@@ -48,7 +48,7 @@ public class NumbersActivity extends AppCompatActivity {
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // word_listyout file.
+        // word_list layout file.
         ListView listView = (ListView) findViewById(R.id.list);
 
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
@@ -58,8 +58,15 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_one);
-                mMediaPlayer.start();
+                // Get the {@link Word} object at the given position the user clicked on
+                Word word = words.get(position);
+
+                // Create and setup the {@link MediaPlayer} for the audio resource associated
+                // with the current word
+                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceID());
+
+                // Start the audio file
+                mMediaPlayer.start(); // no need to call prepare(); create() does that for you
             }
         });
 
