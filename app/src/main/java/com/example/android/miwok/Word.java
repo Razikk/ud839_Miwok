@@ -76,5 +76,17 @@ public class Word {
         return mAudioResourceID;
     }
 
-
+    /**
+     * Provides class-state information for debugging
+     * @return states of class variables
+     */
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceID=" + mImageResourceID +
+                ", mAudioResourceID=" + mAudioResourceID +
+                '}';
+    }
 }
